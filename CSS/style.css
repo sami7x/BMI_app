@@ -30,6 +30,16 @@ h1 {
   background-color: #e8f5e9;
 }
 
+.result_warn {
+  font-size: 1.1em;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #cd1c18;
+  border-radius: 4px;
+  background-color: #e8f5e9;
+  color: #9b1313;
+}
+
 .form {
   font-size: 1.1em;
   margin-top: 20px;
@@ -51,6 +61,7 @@ h1 {
 label {
   display: block;
   margin-bottom: 5px;
+  text-align: start;
   font-weight: bold;
 }
 

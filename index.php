@@ -38,31 +38,35 @@
             $bmi = bmiCalculate($weight, $height);
             $category = bmiCategory($bmi);
 
-            echo "<div class='result'> Your BMI according to your weight $weight (kg) and 
-                  your height $height (m) is " . round($bmi, 2) . " kg/m<sup>2</sup>. <br> You are $category .</div>";
-        } else {
-        ?>
-            <!-- Client side code here -->
-            <h1>Body Mass Index Calculator</h1>
-
-            <div class="form">
-                <form action="" method="post">
-                    <div class="weight_section">
-                        <label for="weight">Enter your weight (kg):</label>
-                        <input type="text" id="weight" name="weight" required>
-                        <br>
-                    </div>
-                    <div class="height_section">
-                        <label for="height">Enter your height (m):</label>
-                        <input type="text" id="height" name="height" required>
-                        <br>
-                    </div>
-                    <input type="submit" value="Submit">
-                </form>
-            </div>
-        <?php
+            if ($bmi < 24.9) {
+                echo "<div class='result'> Your BMI according to your weight $weight (kg) and 
+                  your height $height (m) is " . round($bmi, 2) . " kg/m<sup>2</sup>. <br> <h1>You are $category.</h1></div>";
+            } else {
+                echo "<div class='result_warn'> Your BMI according to your weight $weight (kg) and 
+                  your height $height (m) is " . round($bmi, 2) . " kg/m<sup>2</sup>. <br> You are $category.</div>";
+            }
         }
         ?>
+
+        <!-- Client side code here -->
+        <h1>Body Mass Index Calculator</h1>
+
+        <div class="form">
+            <form action="" method="post">
+                <div class="weight_section">
+                    <!-- <label for="weight">Enter your weight (kg):</label> -->
+                    <input type="text" id="weight" name="weight" required placeholder="Enter your weight (kg)">
+                    <br>
+                </div>
+                <div class="height_section">
+                    <!-- <label for="height">Enter your height (m):</label> -->
+                    <input type="text" id="height" name="height" required placeholder="Enter your height (m)">
+                    <br>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
     </div>
 </body>
 
