@@ -4,23 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Body Mass Index Calculator</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
 </head>
 
 <body>
     <div class="container">
-        <form action="submit.php" method="post">
-            <h1>Body mass indicator</h1>
-            <label for="weight">Enter your weight (kg):</label>
-            <input type="number" id="weight" name="weight" required> <br> <br>
+        <!-- Server Side code here -->
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Retrieve Data
+            $weight = $_POST["weight"];
+            $height = $_POST["height"];
 
-            <label for="height">Enter your height (m):</label>
-            <input type="number" id="height" name="height" required>
+            function bmiCalculate($weight, $height)
+            {
+                return $weight / ($height * $height);
+            }
 
-            <button type="submit" value="Submit"> Submit</button>
-        </form>
+            function bmiCategory($bmi)
+            {
+                if ($bmi < 18.5) {
+                    return "underweight";
+                } elseif ($bmi < 24.9) {
+                    return "normal weight";
+                } elseif ($bmi < 29.9) {
+                    return "overweight";
+                } else {
+                    return "obese";
+                }
+            }
 
+            $bmi = bmiCalculate($weight, $height);
+            $category = bmiCategory($bmi);
+
+            echo "<div class='result'> Your BMI according to your weight $weight (kg) and 
+                  your height $height (m) is " . round($bmi, 2) . " kg/m<sup>2</sup>. <br> You are $category .</div>";
+        } else {
+        ?>
+            <!-- Client side code here -->
+            <div class="form">
+                <form action="" method="post">
+                    <h1>Body Mass Index Calculator</h1>
+                    <label for="weight">Enter your weight (kg):</label>
+                    <input type="text" id="weight" name="weight" required>
+                    <br>
+                    <label for="height">Enter your height (m):</label>
+                    <input type="text" id="height" name="height" required>
+                    <br>
+                    <input type="submit" value="Sdivit">
+                </form>
+            </div>
+        <?php
+        }
+        ?>
     </div>
 </body>
 
