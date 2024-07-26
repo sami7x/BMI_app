@@ -43,16 +43,21 @@
         } else {
         ?>
             <!-- Client side code here -->
+            <h1>Body Mass Index Calculator</h1>
+
             <div class="form">
                 <form action="" method="post">
-                    <h1>Body Mass Index Calculator</h1>
-                    <label for="weight">Enter your weight (kg):</label>
-                    <input type="text" id="weight" name="weight" required>
-                    <br>
-                    <label for="height">Enter your height (m):</label>
-                    <input type="text" id="height" name="height" required>
-                    <br>
-                    <input type="submit" value="Sdivit">
+                    <div class="weight_section">
+                        <label for="weight">Enter your weight (kg):</label>
+                        <input type="text" id="weight" name="weight" required>
+                        <br>
+                    </div>
+                    <div class="height_section">
+                        <label for="height">Enter your height (m):</label>
+                        <input type="text" id="height" name="height" required>
+                        <br>
+                    </div>
+                    <input type="submit" value="Submit">
                 </form>
             </div>
         <?php
